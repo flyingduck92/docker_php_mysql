@@ -24,6 +24,6 @@ docker compose up -d
 
 ## Compose down
 ```
-docker compose down -v  => turn-off server 
+docker compose down     => turn-off server 
 docker compose down -v  => turn-off server and remove data from volume
 ```
