@@ -39,7 +39,7 @@ services:
   # mysql
   mysql: 
     image: mysql:9.7.1
-    container_name: "mysql_db"
+    container_name: "mysql"
     ports: 
       - "${DB_PORT}:3306"
       # host:container
@@ -52,7 +52,7 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE: ${DB_NAME}
     healthcheck:                 
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_ROOT_PASSWORD}"]
       interval: 10s
       timeout: 5s
       retries: 5
